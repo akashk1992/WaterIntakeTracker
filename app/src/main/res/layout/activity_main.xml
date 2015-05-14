@@ -1,0 +1,169 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="16dp"
+              android:orientation="vertical"
+              android:weightSum="6"
+              tools:context=".MainActivity">
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Water Intake Calculator"
+              android:layout_gravity="center_horizontal"
+              android:textSize="20dp"
+            />
+    <RelativeLayout android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Weight in kg:"
+                  android:textSize="20sp"
+                  android:paddingRight="90dp"
+                  android:paddingLeft="0dp"
+                  android:id="@+id/weight"
+                />
+        <EditText android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/weight"
+                  android:id="@+id/text1"
+                />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="temperature in celsius:"
+                  android:textSize="20sp"
+                  android:id="@+id/temp"
+                />
+        <EditText android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/temp"
+                  android:id="@+id/text2"
+                />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calculate"
+                android:id="@+id/button"
+                android:layout_centerInParent="true"
+                />
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/result"
+                  android:layout_below="@+id/button"
+                  android:paddingTop="10dp"
+                  android:layout_centerHorizontal="true"
+                />
+    </RelativeLayout>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/intake_layout"
+                  android:weightSum="4">
+        <Button android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="100ml"
+                android:id="@+id/intake_100_btn"
+                android:layout_weight="1"
+                android:background="@drawable/intake100"
+                />
+        <Button android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="200ml"
+                android:layout_weight="1"
+                android:id="@+id/intake_200_btn"
+                android:layout_toRightOf="@id/intake_100_btn"
+                android:background="@drawable/intake200"
+                />
+        <Button android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="300ml"
+                android:layout_toRightOf="@id/intake_200_btn"
+                android:id="@+id/intake_300_btn"
+                android:layout_weight="1"
+                android:background="@drawable/intake300"
+                />
+        <Button android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:text="500ml"
+                android:layout_weight="1"
+                android:layout_toRightOf="@id/intake_300_btn"
+                android:id="@+id/intake_500_btn"
+                android:background="@drawable/intake500"
+                />
+    </LinearLayout>
+    <RelativeLayout android:layout_width="wrap_content"
+                    android:layout_below="@+id/ll"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressbar_layout">
+        <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="100"
+                android:progressDrawable="@drawable/circle_progress_background"/>
+
+        <ProgressBar
+                android:id="@+id/circle_progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:max="100"
+                android:rotation="-90"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/circle_progress_foreground"/>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:gravity="center">
+
+            <TextView
+                    android:id="@+id/target_intake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 ltr"
+                    android:gravity="center"
+                    android:textSize="@dimen/fourteen_sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+            <TextView
+                    android:id="@+id/compliance_observations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="@dimen/twelve_sp"
+                    android:text="Target Water Intake"
+                    android:paddingBottom="@dimen/five_dp"
+                    android:textColor="@color/text_gray"/>
+
+            <TextView
+                    android:id="@+id/water_taken"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="@dimen/fourteen_sp"
+                    android:text="0%"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+            <TextView
+                    android:id="@+id/compliance_observed_compliance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="@dimen/twelve_sp"
+                    android:text="Water Taken"
+                    android:paddingBottom="@dimen/ten_dp"
+                    android:textColor="@color/text_gray"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
